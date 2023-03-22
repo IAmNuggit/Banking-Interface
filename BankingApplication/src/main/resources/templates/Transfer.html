@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thynmeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAINES Savings</title>
+  <link rel="stylesheet" type="text/css" href="styles/MenuStyle.css">
+</head>
+
+<body>
+  <header class="header">
+  <nav class="nav-items">
+      <a href="/menu">Home</a>
+      <a href="/savings">Savings</a>
+      <a href="/checkings">Checkings</a>
+    </nav>
+  </header>
+  <main>
+    <div class="intro">
+    <a href="https://lh3.googleusercontent.com/9L9rXFcOARNp2Fzqdo_nAa5hUx2LC4Y7kjW4sESm2z2w2QCcow1ojC9uo715lvd8_cCYv1SLONaGL18amviep68uDdq-1lf3_tg4DG4SghuzsdOXIQLDFCuZ0pFs2GO5qTEN8rrk=s300-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/9L9rXFcOARNp2Fzqdo_nAa5hUx2LC4Y7kjW4sESm2z2w2QCcow1ojC9uo715lvd8_cCYv1SLONaGL18amviep68uDdq-1lf3_tg4DG4SghuzsdOXIQLDFCuZ0pFs2GO5qTEN8rrk=s300-p-k" /> </a>    
+      <h1>Transfer to Another Account</h1>
+    </div>
+    
+    <div class="achievements">
+    <div class="login">
+    <div class="container">
+    		<i class="fas fa-atom"></i>
+       		<h1 class="work-heading">Input Transfer Details</h1>
+       		<h3 class="work-heading" th:text="'Your Checking Account Number: '+${checkingsAccount.accountNumber}"></h3>   
+       		<p class="work-heading" th:text="'Balance: £'+${checkingsAccount.balance}"></p> 
+       		<h3 class="work-heading" th:text="'Your Savings Account Number: '+${savingsAccount.accountNumber}"></h3>
+       		<p class="work-heading" th:text="'Balance: £'+${savingsAccount.balance}"></p> <br><br>    
+       		
+       		<div class="login-form">
+       		<form action="#" th:action="@{./transferBalance}" th:object="${command}" method="post">
+       		<p class="work-heading" th:text="'Dispatching Account Number'"></p>  
+       		<input type="text" th:field="*{dispatchingAccountNumber}" placeholder="Dispatching Account Number" required pattern="[0-9]{7}" title="Seven Numbers only"><br> 
+       		<p class="work-heading" th:text="'Recieving Account Number'"></p>
+            <input type="text" th:field="*{recievingAccountNumber}" placeholder="Recieving Account Number" required pattern="[0-9]{7}" title="Seven Numbers only"><br>
+            <p class="work-heading" th:text="'Amount'"></p>
+            <input type="text" th:field="*{amount}" placeholder="Amount" required pattern="^\\$?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$" title="Numbers only"><br>
+            <p class="work-heading" th:text="'Transaction Reference'"></p>
+            <input type="text" th:field="*{transactionReference}" placeholder="Transaction Reference" required pattern=".{3,}" title="More then three characters"><br><br>
+       		<input type="submit" value="Transfer">
+       		</form><br>
+       		<p th:text="${message}" ></p>	
+        </div>
+        </div>
+        </div>
+    </div>
+        
+
+    <div class="achievements">
+    <h1 class="work-heading">Recent Transactions</h1>
+    
+	<table border="1">
+		<tr>
+			<th>Transaction ID</th>
+			<th>Transaction Reference</th>
+			<th>Dispatching Account Number</th>
+			<th>Receiving Account Number</th>
+			<th>Amount</th>
+			<th>Transaction Status</th>
+		</tr>
+		<tr th:each="transactions: ${transactionHistory}">
+			<td th:text="${transactions.transactionId}"></td>
+			<td th:text="${transactions.transactionReference}"></td>
+			<td th:text="${transactions.dispatchingAccountNumber}"></td>
+			<td th:text="${transactions.recievingAccountNumber}"></td>
+			<td th:text="${transactions.amount}"></td>
+			<td th:text="${transactions.transactionStatus}"></td>
+			
+		</tr>
+	</table>  
+	</div>
+	 
+  </main>
+  <footer class="footer">
+    <div class="copy">© CHAINES</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="/menu">Home</a>
+        <a href="/savings">Savings</a>
+        <a href="/checkings">Checkings</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

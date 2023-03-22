@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thynmeleaf.org">
+<head>
+<title>Login Form</title>
+<link rel="stylesheet" type="text/css" href="styles/LoginStyle.css">
+</head>
+  <div class="parent clearfix">
+    <div class="bg-illustration">
+<a href="https://lh3.googleusercontent.com/A5c29jk2SJaa1iKGbREvfv7oZDmAboaPKi6MLqzOGbXAV07ICTWj57m5tRK9GLqlDjh0nZo0dkrg3YN-YHUcy84Ab5YO6-PW16LwSRY6fhlI_jrtS0Q2sUCichXNmz4Er-82o_EM=s300-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/A5c29jk2SJaa1iKGbREvfv7oZDmAboaPKi6MLqzOGbXAV07ICTWj57m5tRK9GLqlDjh0nZo0dkrg3YN-YHUcy84Ab5YO6-PW16LwSRY6fhlI_jrtS0Q2sUCichXNmz4Er-82o_EM=s300-p-k" /> </a>      <div class="burger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+    
+    <div class="login">
+      <div class="container">
+        <h1>Login to access to<br />your account</h1>
+    
+        <div class="login-form">
+        <form action="#" th:action="@{./loginUser}"th:object="${command}" method="post">
+            <input type="text" th:field="*{userName}" placeholder="User Name" required pattern=".{5,}" title="Five or more characters">
+            <input type="password" th:field="*{userPassword}" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+
+            <div class="forget-pass">
+              <a href="#">Forgot Password ?</a>
+            </div>
+
+            <button type="submit">LOG-IN</button><br>            
+			<p th:text="${message}" ></p>
+          </form>
+          <form action="#" th:action="@{./register}">
+          <button type="submit">Register</button><br><br>            
+          </form>
+        </div>
+    
+      </div>
+      </div>
+  </div>

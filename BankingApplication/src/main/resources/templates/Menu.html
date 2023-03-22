@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thynmeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAINES HomePage</title>
+  <link rel="stylesheet" type="text/css" href="styles/MenuStyle.css">
+</head>
+
+<body>
+  <header class="header">
+  <nav class="nav-items">
+      <a href="/menu">Home</a>
+      <a href="/savings">Savings</a>
+      <a href="/checkings">Checkings</a>
+    </nav>
+  </header>
+  <main>
+    <div class="intro">
+    <a href="https://lh3.googleusercontent.com/9L9rXFcOARNp2Fzqdo_nAa5hUx2LC4Y7kjW4sESm2z2w2QCcow1ojC9uo715lvd8_cCYv1SLONaGL18amviep68uDdq-1lf3_tg4DG4SghuzsdOXIQLDFCuZ0pFs2GO5qTEN8rrk=s300-p-k?source=screenshot.guru"> <img src="https://lh3.googleusercontent.com/9L9rXFcOARNp2Fzqdo_nAa5hUx2LC4Y7kjW4sESm2z2w2QCcow1ojC9uo715lvd8_cCYv1SLONaGL18amviep68uDdq-1lf3_tg4DG4SghuzsdOXIQLDFCuZ0pFs2GO5qTEN8rrk=s300-p-k" /> </a>    
+      <h1 th:text="'Welcome back '+${session.clients.fullName}+'!'"></h1>
+           
+      <p>Check out your accounts below</p>    
+      <button>Learn More</button>
+    </div>
+    <div class="achievements">
+      <div class="work">
+        <i class="fas fa-atom"></i>
+        <p class="work-heading">Checkings Account</p>
+        <p class="work-text">Withdraw and deposit your money on frequently on demand, whether at home or on the go!</p><br>
+        <h1 class="work-heading" th:text="'Account Number: '+${checkingsAccount.accountNumber}"></h1>      
+        <h1 class="work-heading" th:text="'Sort Code: '+${checkingsAccount.sortCode}"></h1>      
+        <h1 class="work-heading" th:text="'Balance: Hidden '"></h1>  
+
+        <div class="intro2">
+        <a href="/checkings">
+        	<button>View Account Details</button>
+        </a>
+        </div>
+      </div>
+
+      <div class="work">
+        <i class="fas fa-ethernet"></i>
+        <p class="work-heading">Savings Account</p>
+        <p class="work-text">A great place to store and save your money for when you need it. Earn interest safetly and reliably</p>
+        <h1 class="work-heading" th:text="'Account Number: '+${savingsAccount.accountNumber}"></h1>      
+        <h1 class="work-heading" th:text="'Sort Code: '+${savingsAccount.sortCode}"></h1>      
+        <h1 class="work-heading" th:text="'Balance: Hidden '"></h1>  
+        <div class="intro2">
+        <a href="/savings">
+        	<button>View Account Details</button>
+                	
+        </a>
+        </div>        
+      </div>
+    </div>
+    <div class="about-me">
+      <div class="about-me-text">
+        <h2>Did you know...</h2>
+        <p>A good tidy up of your payees can stop you from sending money to out of date details!
+        </p>
+      </div>
+      <img src="https://png.pngtree.com/element_our/20200610/ourlarge/pngtree-blue-exclamation-mark-image_2243404.jpg" alt="Image">
+    </div>
+    
+    <div class="achievements">
+    <h1 class="work-heading"> Savings Account </h1>    
+      <div class="work">
+        <i class="fas fa-atom"></i>
+        <p class="work-heading">Commonly Used For:</p>
+        <ul>
+        <li>Getting into a regular savings habit</li>
+        <li>Flexibility in building up a savings pot</li>
+        <li>Achieving the higher interest rate on balances up to £5,000</li>
+        </ul>
+      </div>
+      <div class="work">
+        <i class="fas fa-ethernet"></i>
+        <p class="work-heading">Key Info</p>
+        <ul>
+        <li>Instant Access</li>
+        <li>Interest rate AER/Gross p.a (variable) 6.17% / 6.00% on balances up to £5,000</li>
+        <li>Interest rate 0.65% on balances over £5,000</li>
+        </ul>        
+      </div>
+      <div class="work">
+      <img src="https://www.natwest.com/content/dam/natwestinternational_com/assets/images/illustrations-personal/image.dim.270.nwi-pers-ill-gold-flying-pig-trans.png" alt="Image">      
+      </div>
+    </div>
+    
+    <div class="achievements">
+    <div class="work">
+      <img src="https://www.natwest.com/content/dam/natwestinternational_com/assets/images/illustrations-personal/image.dim.270.nwi-pers-ill-gold-flying-pig-trans.png" alt="Image">      
+      </div>
+      <div class="work">
+        <i class="fas fa-atom"></i>
+        <p class="work-heading">Commonly Used For:</p>
+        <ul>
+        <li>Everyday Bank Account</li>
+        <li>Easy Access to your Money, where ever are</li>
+        </ul>
+      </div>
+      <div class="work">
+        <i class="fas fa-ethernet"></i>
+        <p class="work-heading">Key Info</p>
+        <ul>
+        <li>Instant Access</li>
+        <li>5 Star Rated Account</li>
+        <li>Free of Monthly Fees</li>
+        <li>Quick to Set up, Easy to Use</li>
+        </ul>        
+      </div>
+      <h1 class="work-heading"> Checking Account </h1>
+    </div>
+    
+  </main>
+  <footer class="footer">
+    <div class="copy">© CHAINES</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="/menu">Home</a>
+        <a href="/savings">Savings</a>
+        <a href="/checkings">Checkings</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
